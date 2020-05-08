@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>本マスタ</title>
+<link href="/css/loginpage.css" rel="stylesheet">
+<script type="text/javascript" src="./js/loginpagecheck.js" ></script>
+</head>
+<body>
+<form class="background" method="post" th:action="@{/}" th:object="${Tbladmin}">
+	<div id="screen" alignt="center">
+	<div  align="right"><a href="javascript:window.open('about:blank','_self').close();">閉じる</a></div>
+	<div>
+		<h3>ログイン画面</h3>
+	</div>
+	<div >
+		<label>管理者ID：</label><br>
+		<input type="text" maxlength="4" size="8" id="admin" th:field="*{adminId}"><br><br>
+	</div>
+	<div>
+		<label>パスワード：</label><br>
+		<input type="text" maxlength="15" size="20" id="password" th:field="*{password}"><br><br>
+	</div>
+	<div>
+		<input type="button" value="ログイン" onclick="logincheck()" name="login_button">
+	</div>
+	</div>
+</form>
+</body>
+</html>
