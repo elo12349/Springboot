@@ -10,9 +10,9 @@
     </jdbcConnection>
     <javaModelGenerator targetPackage="com.example.entity" targetProject="BookMasterApplication">
     </javaModelGenerator>
-    <sqlMapGenerator targetPackage="src/main/resource" targetProject="BookMasterApplication">
+    <sqlMapGenerator targetPackage="com.example.mapper" targetProject="BookMasterApplication">
     </sqlMapGenerator>
-    <javaClientGenerator type="XMLMAPPER" targetPackage="src/main/resource" targetProject="BookMasterApplication">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mapper" targetProject="BookMasterApplication">
     </javaClientGenerator>
     <table tableName="tbl_admin"/>
   </context>
