@@ -97,5 +97,5 @@ public interface TblAdminMapper {
      */
     int updateByPrimaryKey(TblAdmin record);
 
-	TblAdmin Login(String adminId, String password);
+	String Login(String adminId, String password);
 }

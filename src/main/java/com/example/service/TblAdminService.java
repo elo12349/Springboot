@@ -13,12 +13,9 @@ public class TblAdminService implements UserService{
 	private TblAdminMapper TblAdminmapper;
 	
 	@Override
-	public boolean Login(String adminId, String password) {
-		TblAdmin Tbladmin = TblAdminmapper.Login(adminId, password);
-		if(Tbladmin != null && Tbladmin.getPassword().equals(password)) {
-			return true;
-		}
-		return false;
+	public String Login(String adminId, String password) {
+		TblAdminmapper.Login(adminId, password);
+		return "Login";
 	}
 	
 }

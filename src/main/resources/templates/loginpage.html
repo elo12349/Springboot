@@ -7,19 +7,19 @@
 <script type="text/javascript" src="./js/loginpagecheck.js" ></script>
 </head>
 <body>
-<form class="background" method="post" th:action="@{/}" >
+<form class="background" method="post" th:action="@{/loginpage}" >
 	<div id="screen" alignt="center">
 	<div  align="right"><a href="javascript:window.open('about:blank','_self').close();">閉じる</a></div>
-	<div>
+	
 		<h3>ログイン画面</h3>
 	</div>
 	<div >
 		<label>管理者ID：</label><br>
-		<input type="text" maxlength="4" size="8" id="admin" ><br><br>
+		<input type="text" maxlength="4" size="8" id="adminId" name="adminId"><br><br>
 	</div>
 	<div>
 		<label>パスワード：</label><br>
-		<input type="text" maxlength="15" size="20" id="password" ><br><br>
+		<input type="text" maxlength="15" size="20" id="password" name="password" ><br><br>
 	</div>
 	<div>
 		<input type="submit" value="ログイン" onclick="logincheck()" name="login_button">
