@@ -7,43 +7,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.example.entity.TblAdmin;
 import com.example.service.TblAdminService;
 
-/**
- * 
- * 【クラスの説明】 
- * 本マスタのコントローラクラス
- * 
- * 【変更履歴】 1.00 2018/09/16 新規作成
- * 
- * @author T.Yagi
- * 
- * @version 1.00
- *
- */
+
 @Controller
-@RequestMapping("/")
+@RequestMapping("/loginpage")
 public class BookMasterController {
-	
 	@Autowired
-	public TblAdminService TblAdminservice;
+	private TblAdminService TblAdminservice;
 	
-	@GetMapping("/")
+	@GetMapping
 	public String Loginpage(Model model) {
 		 if (!model.containsAttribute("Tbladmin")) {
 	            model.addAttribute("Tbladmin", new TblAdmin());
 	        }
-		return "postgres";
+	        return "loginpage";
 	}
-	@PostMapping(value = "/", params = "login_button")
-	public String Login(@ModelAttribute("Tbladmin") TblAdmin Tbladmin) {
+	@PostMapping
+	public String login(@ModelAttribute("Tbladmin") TblAdmin Tbladmin) {
 		boolean found = TblAdminservice.Login(Tbladmin.getAdminId(), Tbladmin.getPassword());
-		if(found) {
+		if (found) {				
 			return "success";
-		}else {
-			return "false";
+		} else {				
+			return "failure";
 		}
 	}
 }
