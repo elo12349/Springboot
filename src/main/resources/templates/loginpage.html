@@ -13,6 +13,9 @@
 	
 		<h3>ログイン画面</h3>
 	</div>
+	<div>
+		<p th:text="${message}"></p>
+	</div>
 	<div >
 		<label>管理者ID：</label><br>
 		<input type="text" maxlength="4" size="8" id="adminId" name="username"><br><br>
@@ -22,7 +25,7 @@
 		<input type="text" maxlength="15" size="20" id="password" name="password" ><br><br>
 	</div>
 	<div>
-		<input type="submit" value="ログイン" onclick="logincheck()" name="login_button">
+		<input type="submit" value="ログイン" onsubmit="logincheck()" name="login_button">
 	</div>
 </form>
 </body>
