@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Menu画面</title>
+<link href="/css/menu.css" rel="stylesheet" th:href="@{/css/menu.css}">
+<script type="text/javascript" src="./js/logoutconfirm.js" ></script>
+</head>
+<body>
+	<div  class="ground" >
+			<div align="right">
+				<a href="/logoutSuccess" onclick="return logoutConfirm();">ログアウト</a>
+			</div>
+		<h3>メニュー画面</h3>
+		<br>	
+		<form >			
+			<input type="submit" value="会員マスタメンテ" size="10" class="btn1" formaction="/shainMember">&nbsp;&nbsp;&nbsp;&nbsp;	<input type="submit" value="貸出" size="10" class="btn3" formaction="/Kashidashi"><br><br><br>
+			<input type="submit" value="本マスタメンテ" size="10" class="btn2" formaction="/HonMaster" >&nbsp;&nbsp;&nbsp;&nbsp;	<input type="submit" value="返却" size="10" class="btn4" formaction="/Henkyaku">
+		</form>	
+	</div>
+</body>
+</html>

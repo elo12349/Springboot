@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>MemberPage</title>
+<link href="/css/shainMember.css" rel="stylesheet" th:href="@{/css/shainMember.css}">
+<script type="text/javascript" src="./js/logoutconfirm.js" ></script>
+</head>
+<body>
+	<div class="back">
+		<div align="right">
+				<a href="/logoutSuccess" onclick="return logoutConfirm();">ログアウト</a>
+		</div>
+		<h3>会員マスタメンテ</h3> 
+		<div align="right">
+				<a href="#">戻る</a>
+		</div>
+		<div>
+			<label>会員ID：</label><br>	
+		</div>
+		<div>
+			<input type="text" size="10"> <input type="submit" value="検索">
+		</div>
+		<div>
+			<label>会員氏(漢字)：</label>&nbsp;&nbsp;&nbsp;&nbsp;<label>会員氏(カナ)：</label><br>	
+		</div>
+		<div>
+			<input type="text" size="10">&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="10"> 
+		</div>
+		<div>
+			<label>会員名(漢字)：</label>&nbsp;&nbsp;&nbsp;&nbsp;<label>会員名(カナ)：</label><br>	
+		</div>
+		<div>
+			<input type="text" size="10">&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="10"> 
+		</div>
+		<div>
+			<label>住所：</label><br>	
+		</div>
+		<div>
+			<input type="text" size="35"> <br><br>
+		</div>
+		<div>
+			<label>生年月日(西暦)：</label><br><br>
+			<input type="text" size="4">&nbsp;<label>年</label>	
+			<input type="text" size="2">&nbsp;<label>月</label>	
+			<input type="text" size="2">&nbsp;<label>日</label>	<br><br>	
+		</div>		
+		<div class="btn-group" align="right" >
+			<input type="submit"  value="追加" >&nbsp;&nbsp;
+			<input type="submit"  value="更新" >&nbsp;&nbsp;
+			<input type="submit"  value="削除" >&nbsp;&nbsp;
+			<input type="reset" value="クリア">
+		</div>
+	</div>	
+</body>
+</html>

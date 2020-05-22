@@ -1,0 +1,21 @@
+.ground{
+border-style: solid;
+  margin: 20px;
+  padding: 20px;
+  width:20%;
+  height:auto;
+}
+.btn1{
+ width: 100px;
+}
+.btn2{
+ width: 100px;
+}
+.btn3{
+ width: 100px;
+ height: 26px;
+}
+.btn4{
+ width: 100px;
+ height: 26px;
+}

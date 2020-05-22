@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -29,19 +30,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/").permitAll()
+				.antMatchers("/")
+				.permitAll()
+				.antMatchers("/logout","/menu","/403").permitAll()
 				.anyRequest().authenticated()
 				.and()
-			.formLogin()
-				.loginPage("/loginpage")
-				.defaultSuccessUrl("/home")
-				.failureUrl("/login?error=true")
+			.formLogin()  
+	            .loginPage("/loginpage")
+				.defaultSuccessUrl("/menu")
+				.failureUrl("/loginpage?error=true")
 				.permitAll()
 				.and()
 			.logout()
-				.logoutUrl("/logout")
-				.logoutSuccessUrl("/logout")
-				.and();		
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll()            
+				.logoutSuccessUrl("/logoutSuccessful")
+				.and()
+				.exceptionHandling()
+				.accessDeniedPage("/403")
+				.and();
 	}
 
 }

@@ -12,8 +12,8 @@
     </javaModelGenerator>
     <sqlMapGenerator targetPackage="com.example.mapper" targetProject="BookMasterApplication">
     </sqlMapGenerator>
-    <javaClientGenerator type="XMLMAPPER" targetPackage="resource/com/example/mapper" targetProject="BookMasterApplication">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mapper" targetProject="BookMasterApplication">
     </javaClientGenerator>
-    <table tableName="tbl_admin"/>
+    <table tableName="tbl_member"/>
   </context>
 </generatorConfiguration>

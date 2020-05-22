@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>KashidashiPAge</title>
+<link href="/css/Kashidashibtn.css" rel="stylesheet" th:href="@{/css/Kashidashibtn.css}">
+<script type="text/javascript" src="./js/logoutconfirm.js" ></script>
+<script type="text/javascript" src="./js/Kashidashicheck.js" ></script>
+</head>
+<body>
+	<div class="back">
+		<div align="right">
+				<a href="/logoutSuccess" onclick="return logoutConfirm();">ログアウト</a>
+		</div>
+		<form name="myform" onsubmit="return Kashidashicheck();" method="post" th:action="@{/Kashidashi}" th:object="${Tblbook}">
+		<h3>会員マスタメンテ</h3> 
+		<div align="right">
+				<a href="#">戻る</a>
+		</div>
+		<div>
+		<p th:text="${message}"></p>
+		</div>
+		<div>
+			<label>本ID：</label><br>	
+		</div>
+		<div>
+			<input type="text" size="4" id="Id">&nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" value="検索" th:field="*{bookId}" name="btn_search"><br>	<br>
+		</div>
+		<div>
+			<label>本タイトル：</label><br>		
+		</div>
+		<div>
+			<input type="text" size="40" th:field="*{bookTitle}"><br>	<br> 
+		</div>
+		<div>
+			<label>会員ID：</label><br>		
+		</div>
+		<div class="btn_kashidashi">
+			<input type="text" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="貸出" align="right">
+		</div>
+		</form>
+	</div>	
+</body>
+</html>
