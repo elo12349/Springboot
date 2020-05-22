@@ -1,5 +1,6 @@
 package com.example.web.controller;
 
+import java.util.Calendar;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,8 +66,11 @@ public class BookMasterController {
 		return "shainMember";
 	}
 	@RequestMapping(value="/Kashidashi", method = RequestMethod.GET)
-	public String Kashidashipage() {
-		return "Kashidashi";
+	public String Kashidashipage(Model model) {
+		 if (!model.containsAttribute("Tblbook")) {
+	            model.addAttribute("Tblbook", new KashidashiForm());
+	        }
+		 return "Kashidashi";
 	}
 	@RequestMapping(value="/Henkyaku", method = RequestMethod.GET)
 	public String Henkyakupage() {
@@ -78,9 +83,9 @@ public class BookMasterController {
 			if(Tblbook != null) {
 				KashidashiForm form = new KashidashiForm();
 				form.setBookId(Tblbook.getBookId());
-				form.setBookTitle(Tblbook.getBookTitle());
-				 redirectAttributes.addFlashAttribute("book", form);
-		         redirectAttributes.addFlashAttribute("message","本が見つかりました。");  
+	            form.setBookTitle(Tblbook.getBookTitle());
+				redirectAttributes.addFlashAttribute("Tblbook", form);
+		        redirectAttributes.addFlashAttribute("message","本が見つかりました。");  
 			}else {
 				String messages = messagesource.getMessage("error", null, Locale.getDefault());
 	            redirectAttributes.addFlashAttribute("message", messages);
@@ -89,7 +94,7 @@ public class BookMasterController {
 			String messages = messagesource.getMessage("search.error",null, Locale.getDefault());
     		redirectAttributes.addFlashAttribute("message", messages);
 		}
-		return "Kashidashi";
+		return "Kashidashi/search";
 		
 	}
 	
