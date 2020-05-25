@@ -66,7 +66,7 @@ public class BookMasterController {
 		return "shainMember";
 	}
 	@RequestMapping(value="/Kashidashi", method = RequestMethod.GET)
-	public String Kashidashipage(Model model) {
+	public String Kashidashipage(Model model,TblBook Tblbook) {
 		 if (!model.containsAttribute("Tblbook")) {
 	            model.addAttribute("Tblbook", new KashidashiForm());
 	        }
@@ -76,15 +76,15 @@ public class BookMasterController {
 	public String Henkyakupage() {
 		return "Henkyaku";
 	}
-	@RequestMapping(value="/Kashidashi", method = RequestMethod.POST, params="btn_search")
+	@RequestMapping(value="/Kashidashi", method = RequestMethod.POST)
 	public String show(String bookId, RedirectAttributes redirectAttributes) {
 		try {
-			TblBook Tblbook =  TblBookservice.selectByPrimaryKey(bookId);
+			TblBook Tblbook =  TblBookservice.selectById(bookId);
 			if(Tblbook != null) {
 				KashidashiForm form = new KashidashiForm();
 				form.setBookId(Tblbook.getBookId());
 	            form.setBookTitle(Tblbook.getBookTitle());
-				redirectAttributes.addFlashAttribute("Tblbook", form);
+				redirectAttributes.addAttribute("Tblbook", form);
 		        redirectAttributes.addFlashAttribute("message","本が見つかりました。");  
 			}else {
 				String messages = messagesource.getMessage("error", null, Locale.getDefault());
@@ -94,7 +94,7 @@ public class BookMasterController {
 			String messages = messagesource.getMessage("search.error",null, Locale.getDefault());
     		redirectAttributes.addFlashAttribute("message", messages);
 		}
-		return "Kashidashi/search";
+		return "Kashidashi";
 		
 	}
 	

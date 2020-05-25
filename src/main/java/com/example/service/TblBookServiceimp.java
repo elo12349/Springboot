@@ -18,9 +18,9 @@ public class TblBookServiceimp implements TblBookService{
     }
 	@Transactional
 	@Override
-	public TblBook selectByPrimaryKey(String bookId) {
+	public TblBook selectById(String bookId) {
 		try {
-			return selectByPrimaryKey(bookId);
+			return TblBookmapper.selectById(bookId);
 		}catch(Exception e) {
 			throw new KashidashiException("search.error");
 		}

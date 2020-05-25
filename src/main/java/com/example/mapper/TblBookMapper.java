@@ -96,5 +96,5 @@ public interface TblBookMapper {
      */
     int updateByPrimaryKey(TblBook record);
     
-   
+    TblBook selectById (String bookId);
 }

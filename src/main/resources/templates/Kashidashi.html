@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
 <meta charset="UTF-8" />
 <title>KashidashiPAge</title>
@@ -12,7 +12,7 @@
 		<div align="right">
 				<a href="/logoutSuccess" onclick="return logoutConfirm();">ログアウト</a>
 		</div>
-		<form name="myform" onsubmit="return Kashidashicheck();" method="post" th:action="@{/Kashidashi/search}" th:object="${Tblbook}">
+		<form name="myform" onsubmit="return Kashidashicheck();" method="post" th:action="@{/Kashidashi}" th:object="${Tblbook}">
 		<h3>貸出</h3> 
 		<div align="right">
 				<a href="#">戻る</a>
