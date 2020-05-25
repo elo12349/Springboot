@@ -77,22 +77,22 @@ public class BookMasterController {
 		return "Henkyaku";
 	}
 	@RequestMapping(value="/Kashidashi", method = RequestMethod.POST)
-	public String show(String bookId, RedirectAttributes redirectAttributes) {
+	public String show(String bookId, Model model ) {
 		try {
 			TblBook Tblbook =  TblBookservice.selectById(bookId);
 			if(Tblbook != null) {
 				KashidashiForm form = new KashidashiForm();
 				form.setBookId(Tblbook.getBookId());
 	            form.setBookTitle(Tblbook.getBookTitle());
-				redirectAttributes.addAttribute("Tblbook", form);
-		        redirectAttributes.addFlashAttribute("message","本が見つかりました。");  
+				model.addAttribute("Tblbook", form);
+		        model.addAttribute("message","本が見つかりました。");  
 			}else {
 				String messages = messagesource.getMessage("error", null, Locale.getDefault());
-	            redirectAttributes.addFlashAttribute("message", messages);
+				model.addAttribute("message", messages);
 			}
 		}catch(Exception e) {
 			String messages = messagesource.getMessage("search.error",null, Locale.getDefault());
-    		redirectAttributes.addFlashAttribute("message", messages);
+    		model.addAttribute("message", messages);
 		}
 		return "Kashidashi";
 		
