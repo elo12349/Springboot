@@ -3,10 +3,62 @@
 <head>
 <meta charset="UTF-8" />
 <title>HenkyakuPage</title>
+<link href="/css/henkyaku.css" rel="stylesheet">
+<script type="text/javascript" src="./js/henkyaku.js" ></script>
+<script type="text/javascript" src="./js/logoutconfirm.js" ></script>
+<style>
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
 
+</style>
 </head>
 <body>
-	<h3>Henkyaku</h3> 
-		hu
+<div class="back">
+	<div align="right">
+			<a href="/logoutSuccess" onclick="return logoutConfirm();">ログアウト</a>
+	</div>	
+	<h3>返却画面</h3> 
+	<div align="right">
+			<a href="/menu">戻る</a>
+	</div>
+	<p th:text="${message}" id="demo"></p>
+	<form id="myform" onsubmit="return searchcheck();" method="post" th:action="@{/Henkyaku}" th:object="${Tblrental}" name="form1">
+	<div>				
+			<label>会員ID：</label><br>
+			<input type="text" id="memberId"   name="memberId" size="4" maxlength="4" th:field="*{memberId}">
+			<input type="submit"  name="btn_search" value="検索" onclick="disablecheck()">&nbsp;&nbsp;<br>
+	</div>
+	<div class="table">
+			<label>貸出一覧：</label>
+			<table id="mytable">
+			<tr>
+				<th>返却</th>
+				<th>本ID	</th>
+				<th>本タイトル</th>
+			</tr>
+			<tr th:each="rental : ${Tblrental}">
+				<td><input type="checkbox" name="check" id="check" onclick="validate()"></td>
+				<td><input type="text" th:field="*{bookId}" size="4" maxlength="4" id="txt"  /></td>
+				<td><input type="text" th:field="*{bookTitle}"/></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" id="check" onclick="validate()"></td>
+				<td></td>
+				<td></td>
+			</tr>
+			</table>
+	</div><br>
+	<div align="right"><input type="submit" name="btn_henkyaku" id="btn_henkyaku"   value="返却" /></div>
+	
+	</form>
+</div>
 </body>
 </html>

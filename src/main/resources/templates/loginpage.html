@@ -3,18 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <title>本マスタ</title>
-<!-- <link href="/css/loginpage.css" rel="stylesheet" th:href="@{/css/loginpage.css}"> -->
-<!-- <script type="text/javascript" src="./js/loginpagecheck.js" ></script>  -->
+ <!--  <link href="/css/loginpage.css" rel="stylesheet"> 
+ <script type="text/javascript" src="./js/loginpagecheck.js" ></script>  -->
 </head>
 <body>
-<form class="background" name="myForm" method="post" th:action="@{/loginpage}" >
+<form class="background" name="myForm" method="post" th:action="@{/loginpage}" onsubmit="return logincheck()">
 	<div id="screen" alignt="center">
 	<div  align="right"><a href="javascript:window.open('about:blank','_self').close();">閉じる</a></div>
-	
+
 		<h3>ログイン画面</h3>
 	</div>
-	<p th:if="${param.error}" class="error">Invalid ID or password</p>
-	<p th:if="${param.logout}" class="success">You have been logged out</p>
+	<p th:if="${param.error}" class="error">管理者IDやパスワードを入力してください。</p>
 	<div>
 		<p th:text="${message}"></p>
 	</div>
@@ -24,10 +23,10 @@
 	</div>
 	<div>
 		<label>パスワード：</label><br>
-		<input type="text" maxlength="15" size="20" id="password" name="password" ><br><br>
+		<input type="password" maxlength="15" size="20" id="password" name="password" ><br><br>
 	</div>
 	<div>
-		<input type="submit" value="ログイン" onsubmit="return logincheck()" >
+		<input type="submit" value="ログイン"  name="btn=">
 	</div>
 </form>
 </body>

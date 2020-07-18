@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>HonPage</title>
-
+<meta charset="UTF-8">
+<title>本マスタメンテ</title>
+<link href="/css/bookmaster.css" rel="stylesheet">
+<script type="text/javascript" src="./js/bookmaster.js" ></script>
 </head>
 <body>
-	<h3>BookMaster</h3> 
-		Book
+<form name="myform" class="background" method="post" th:action="@{/HonMaster}" th:object="${Tblbook}" onsubmit="return searchcheck()">
+		<div align="right">
+			<a href="/logoutSuccess" onclick="return logoutConfirm();">ログアウト</a>
+		</div>		
+		<H4>本マスタメンテ</H4>
+		<div align="right">
+			<a href="/menu">戻る</a>
+		</div>
+		<p th:text="${message}"></p>
+		<div>				
+			<label >本ID:</label><br>
+			<input type="text" id="bookId"   name="bookId" size="4" maxlength="4" th:field="*{bookId}" onkeyup="success()">
+			<input type="submit"  name="btn_search" value="検索" >&nbsp;&nbsp;<br>
+		</div>
+			<label >本タイトル:</label><br>
+			<input type="text" id="bookTitle" name="bookTitle"  size="30" maxlength="40" th:field="*{bookTitle}" onkeyup="success()" ><br>		
+			<label >著者名：</label><br>
+			<input type="text" id="authorName" name="authorName" size="30" maxlength="40" th:field="*{authorName}" onkeyup="success()"><br>			
+			<label >出版社：</label><br>
+			<input type="text" id="publisher" name="publisher" size="30" maxlength="40" th:field="*{publisher}" onkeyup="success()"><br>			
+			<label   >出版年月日：</label><br>
+		<input type="text" id="publishcationYear" name="publicationYear" size="4" maxlength="4" th:field="*{publicationYear}" onkeyup="success()">&nbsp;<label>年</label>	
+		<input type="text" id="publishcationMonth" name="publicationMonth" size="2" maxlength="2" th:field="*{publicationMonth}" onkeyup="success()">&nbsp;<label>月</label>	
+		<input type="text" id="publishcationDate" name="publicationDate" size="2" maxlength="2" th:field="*{publicationDate}" onkeyup="success()">&nbsp;<label>日</label>	<br><br>		
+	<div class="btn-group" align="center" >	
+		<button type="submit" id="btn_insert" name="btn_insert" disabled="disabled"  >追加</button>&nbsp;&nbsp;
+		<button type="submit" id="btn_update" name="btn_update" disabled="disabled" >変更</button>&nbsp;&nbsp;
+		<button type="submit" id="btn_delete" name="btn_delete" disabled="disabled" >削除</button>&nbsp;&nbsp;
+		<input type="reset" value="クリア">
+	</div>
+</form >
 </body>
 </html>

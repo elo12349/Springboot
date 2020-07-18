@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.authorizeRequests()
 				.antMatchers("/")
 				.permitAll()
-				.antMatchers("/logout","/menu","/403").permitAll()
+				.antMatchers("/logout","/menu").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()  

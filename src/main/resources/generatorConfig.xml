@@ -14,6 +14,6 @@
     </sqlMapGenerator>
     <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mapper" targetProject="BookMasterApplication">
     </javaClientGenerator>
-    <table tableName="tbl_member"/>
+    <table tableName="tbl_rental"/>
   </context>
 </generatorConfiguration>

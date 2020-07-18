@@ -1,6 +1,6 @@
 function logincheck(){
-	var id = document.forms["myform"]["adminId"].value;		
-	var pass = document.forms["myform"]["password"].value;
+	var id = document.forms["myForm"]["adminId"].value;		
+	var pass = document.forms["myForm"]["password"].value;
 	var message1 ='管理者IDを入力してください。';
 	var message2 ='管理者IDは半角英数字で入力してください。';
 	var message3 ='パスワードを入力してください。';

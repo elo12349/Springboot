@@ -12,10 +12,10 @@
 		<div align="right">
 				<a href="/logoutSuccess" onclick="return logoutConfirm();">ログアウト</a>
 		</div>
-		<form name="myform" onsubmit="return Kashidashicheck();" method="post" th:action="@{/Kashidashi}" th:object="${Tblbook}">
+		<form action="btn_search" name="myform" onsubmit="return searchcheck();" method="post" th:action="@{/Kashidashi}" th:object="${Tblbook}">
 		<h3>貸出</h3> 
 		<div align="right">
-				<a href="#">戻る</a>
+				<a href="/menu">戻る</a>
 		</div>
 		<div>
 		<p th:text="${message}"></p>
@@ -32,12 +32,14 @@
 		<div>
 			<input type="text" size="40" name="bookTitle" th:field="*{bookTitle}"><br>	<br> 
 		</div>
+		</form>
+		<form method="post" th:action="@{/Kashidashi}" th:object="${Tblmember}">
 		<div>
 			<label>会員ID：</label><br>		
 		</div>
 		<div class="btn_kashidashi">
-			<input type="text" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="submit" value="貸出" align="right">
+			<input type="text" size="4" id="MemberId" name="memberId"  th:field="*{memberId}">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="貸出" align="right" name="btn_kashidashi">
 		</div>
 		</form>
 	</div>	

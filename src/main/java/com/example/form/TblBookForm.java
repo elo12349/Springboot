@@ -3,7 +3,7 @@ package com.example.form;
 
 import javax.validation.constraints.NotNull;
 
-public class KashidashiForm {
+public class TblBookForm {
 	@NotNull
 	private String bookId;
 	@NotNull
@@ -18,6 +18,11 @@ public class KashidashiForm {
 	private Integer publicationMonth;
 	@NotNull
 	private Integer publicationDate;
+//	private String registId;
+//	private Integer registDate;
+//	private String updateId;
+//	private Integer updateDate;
+//	private String deleteFlg;
 
 	public String getBookId() {
 		return bookId;
